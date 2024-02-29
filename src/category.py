@@ -1,3 +1,6 @@
+from product import Product
+
+
 class Category:
     '''Класс <Категории>'''
     name: str
