@@ -10,7 +10,17 @@ class Category:
     def __init__(self, name, description, products):
         self.name = name
         self.description = description
-        self.products = products
+        self.__products = products
 
         Category.number_categories += 1
-        Category.number_products += len(self.products)
+        Category.number_products += len(self.__products)
+
+    def add_goods(self, name, products):
+        if name == self.name:
+            self.__products.append(products)
+        else:
+            print(f'Товар {products} должен быть объектом класса {name}')
+
+
+
+
