@@ -21,6 +21,9 @@ class Category:
         else:
             print(f'Товар {products} должен быть объектом класса {name}')
 
-
+    @property
+    def product_list(self):
+        for product in self.__products:
+            return f'{product.name}, {product.price} руб. Остаток:{product.quantity} шт.\n'
 
 
