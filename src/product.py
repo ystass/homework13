@@ -20,3 +20,18 @@ class Product:
                     i._price = price
             else:
                 return cls(name, description, price, quantity)
+
+
+    @property
+    def price_change(self):
+        return self.price
+
+
+    @price_change.setter
+    def price_change(self, new_price):
+        if new_price <= 0:
+            print('Введенная цена некорректна')
+        elif new_price < self.price:
+            user_answer = input('Вы хотите ввести цену ниже существующей y / n')
+            if user_answer == 'y':
+                self.price = new_price
