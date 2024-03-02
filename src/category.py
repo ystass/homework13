@@ -1,4 +1,4 @@
-from product import Product
+from src.product import Product
 
 
 class Category:
@@ -18,6 +18,15 @@ class Category:
         Category.number_categories += 1
         Category.number_products += len(self.__products)
 
+    def __len__(self):
+        quantity_products = 0
+        for i in self.__products:
+            quantity_products += i.quantity
+        return quantity_products
+
+    def __str__(self):
+        return f'{self.name}, количество продуктов: {len(self)} шт.'
+
     def add_goods(self, name, products):
         if name == self.name:
             self.__products.append(products)
@@ -29,4 +38,6 @@ class Category:
         for product in self.__products:
             return f'{product.name}, {product.price} руб. Остаток:{product.quantity} шт.\n'
 
-
+    @property
+    def products(self):
+        return self.__products
