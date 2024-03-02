@@ -1,4 +1,4 @@
-from product import Product
+from src.product import Product
 
 
 class Category:
@@ -29,4 +29,6 @@ class Category:
         for product in self.__products:
             return f'{product.name}, {product.price} руб. Остаток:{product.quantity} шт.\n'
 
-
+    @property
+    def products(self):
+        return self.__products
