@@ -43,18 +43,3 @@ class Category:
         return self.__products
 
 
-class Smartphone(Product):
-    def __init__(self, name, description, products, performance, model, memory, color):
-        super().__init__(self, name, description, products)
-        self.performance = performance
-        self.model = model
-        self.memory = memory
-        self.color = color
-
-
-class LawnGrass(Product):
-    def __init__(self, name, description, products, manufacturer, germination_period, color):
-        super().__init__(self, name, description, products)
-        self.manufacturer = manufacturer
-        self.germination_period = germination_period
-        self.color = color
