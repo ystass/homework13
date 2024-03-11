@@ -28,7 +28,7 @@ class Category:
         return f'{self.name}, количество продуктов: {len(self)} шт.'
 
     def add_goods(self, name, products):
-        if name == self.name:
+        if isinstance(name, Product):
             self.__products.append(products)
         else:
             print(f'Товар {products} должен быть объектом класса {name}')
