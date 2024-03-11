@@ -15,10 +15,10 @@ class Product:
         return f'{self.name}, {self.price} руб. Остаток: {self.quantity} шт.'
 
     def __add__(self, other):
-        if issubclass(type(other), Product):
+        if type(self) == type(other):
             return self.price * self.quantity + other.price * other.quantity
         else:
-            print('Выбранные товары не одного и того же класса')
+            raise TypeError('Выбранные товары не одного и того же класса')
 
     @classmethod
     def new_product(cls, name, description, price, quantity, products):
