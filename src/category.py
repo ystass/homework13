@@ -31,7 +31,7 @@ class Category:
         if isinstance(name, Product):
             self.__products.append(products)
         else:
-            print(f'Товар {products} должен быть объектом класса {name}')
+            print(f'Товар {name} должен быть объектом класса {Product} или дочерних классов')
 
     @property
     def product_list(self):
