@@ -15,7 +15,7 @@ class Product:
         return f'{self.name}, {self.price} руб. Остаток: {self.quantity} шт.'
 
     def __add__(self, other):
-        if type(self) == type(other):
+        if isinstance(other, type(self)):
             return self.price * self.quantity + other.price * other.quantity
         else:
             raise TypeError('Выбранные товары не одного и того же класса')
@@ -47,8 +47,8 @@ class Product:
 
 
 class Smartphone(Product):
-    def __init__(self, name, description, products, performance, model, memory, color):
-        super().__init__(self, name, description, products)
+    def __init__(self, name, description, price, quantity, performance, model, memory, color):
+        super().__init__(name, description, price, quantity)
         self.performance = performance
         self.model = model
         self.memory = memory
@@ -56,8 +56,8 @@ class Smartphone(Product):
 
 
 class LawnGrass(Product):
-    def __init__(self, name, description, products, manufacturer, germination_period, color):
-        super().__init__(self, name, description, products)
+    def __init__(self, name, description, price, quantity, manufacturer, germination_period, color):
+        super().__init__(name, description, price, quantity)
         self.manufacturer = manufacturer
         self.germination_period = germination_period
         self.color = color
