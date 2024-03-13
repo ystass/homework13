@@ -1,7 +1,8 @@
 from src.product import Product
+from src.MixinOutput import MixinOutput
 
 
-class Category:
+class Category(MixinOutput):
     '''Класс <Категории>'''
     name: str
     description: str
@@ -14,6 +15,7 @@ class Category:
         self.name = name
         self.description = description
         self.__products = products
+        super().__init__()
 
         Category.number_categories += 1
         Category.number_products += len(self.__products)

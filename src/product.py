@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from src.MixinOutput import MixinOutput
 
 
 class BaseClass(ABC):
@@ -7,7 +8,7 @@ class BaseClass(ABC):
         pass
 
 
-class Product(BaseClass):
+class Product(BaseClass, MixinOutput):
     '''Класс <Продукты>'''
     name: str
     description: str
@@ -19,6 +20,7 @@ class Product(BaseClass):
         self.description = description
         self.price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         return f'{self.name}, {self.price} руб. Остаток: {self.quantity} шт.'
@@ -39,11 +41,9 @@ class Product(BaseClass):
             else:
                 return cls(name, description, price, quantity)
 
-
     @property
     def price_change(self):
         return self.price
-
 
     @price_change.setter
     def price_change(self, new_price):
@@ -55,7 +55,7 @@ class Product(BaseClass):
                 self.price = new_price
 
 
-class Smartphone(Product):
+class Smartphone(Product, MixinOutput):
     def __init__(self, name, description, price, quantity, performance, model, memory, color):
         super().__init__(name, description, price, quantity)
         self.performance = performance
@@ -64,7 +64,7 @@ class Smartphone(Product):
         self.color = color
 
 
-class LawnGrass(Product):
+class LawnGrass(Product, MixinOutput):
     def __init__(self, name, description, price, quantity, manufacturer, germination_period, color):
         super().__init__(name, description, price, quantity)
         self.manufacturer = manufacturer
