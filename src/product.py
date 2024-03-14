@@ -7,9 +7,17 @@ class BaseClass(ABC):
     def __str__(self):
         pass
 
+    @abstractmethod
+    def new_product(self, *args):
+        pass
+
+    @abstractmethod
+    def price_change(self):
+        pass
+
 
 class Product(BaseClass, MixinOutput):
-    '''Класс <Продукты>'''
+    """Класс <Продукты>"""
     name: str
     description: str
     price: float

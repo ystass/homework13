@@ -3,7 +3,7 @@ from src.MixinOutput import MixinOutput
 
 
 class Category(MixinOutput):
-    '''Класс <Категории>'''
+    """Класс <Категории>"""
     name: str
     description: str
     products: list
