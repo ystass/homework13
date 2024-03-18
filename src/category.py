@@ -30,6 +30,8 @@ class Category(MixinOutput):
         return f'{self.name}, количество продуктов: {len(self)} шт.'
 
     def add_goods(self, name, products):
+        if products.quantity == 0:
+            raise ValueError('Товар с нулевым количеством не может быть добавлен')
         if isinstance(name, Product):
             self.__products.append(products)
         else:
