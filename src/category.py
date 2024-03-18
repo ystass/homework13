@@ -29,6 +29,16 @@ class Category(MixinOutput):
     def __str__(self):
         return f'{self.name}, количество продуктов: {len(self)} шт.'
 
+    def average_price(self):
+        try:
+            average_price = 0
+            for i in self.__products:
+                all_price = i.price * i.quantity
+                average_price = all_price / len(self)
+            return average_price
+        except ZeroDivisionError:
+            print('0')
+
     def add_goods(self, name, products):
         if products.quantity == 0:
             raise ValueError('Товар с нулевым количеством не может быть добавлен')
